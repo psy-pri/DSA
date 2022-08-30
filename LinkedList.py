@@ -35,14 +35,17 @@ class LinkedList:
     def append(self,value):
         #create node 
         new_node = Node(value)
-        #point current tail to new node 
-        self.tail.next = new_node 
-        #assign new node as tail node 
-        self.tail = new_node
-        #update list length 
-        self.length += 1
-
-    
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            #point current tail to new node 
+            self.tail.next = new_node 
+            #assign new node as tail node 
+            self.tail = new_node
+            #update list length 
+            self.length += 1
+   
 new_linked_list = LinkedList(1)
 # print(new_linked_list.head.value)
 new_linked_list.append(2)
